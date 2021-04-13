@@ -14,7 +14,10 @@
 
 <script>
 export default {
-    props:['headerText', 'headericon']
+    props:['headerText', 'headericon'],
+    mounted(){
+     this.$emit('myEvent', 'Hello Emit');
+    }
 
 }
 </script>

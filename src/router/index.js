@@ -1,10 +1,17 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import ContentHeader from "@/components/ContentHeader.vue"
 
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/",
+    name:"home",
+    component: ContentHeader,
+    children: []
+  }
   
 ];
 
