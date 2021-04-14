@@ -1,9 +1,10 @@
+/* NOTES: NEXT Class ands Style binding */
 <template>
   <div>
     <h1>Test Everything</h1>
 
     <v-container class="grey lighten-5">
-      <v-row no-gutters>
+      <v-row no-gutters class="my-10">
         <v-col cols="2" sm="4">
           <v-card class="pa-2" outlined tile>
             {{ setShowValue }}
@@ -27,7 +28,7 @@
         </v-col>
       </v-row>
 
-      <v-row no-gutters>
+      <v-row no-gutters class="my-10">
         <v-col cols="2" sm="4">
           <div>
             <ul>
@@ -45,6 +46,34 @@
           </div>
         </v-col>
       </v-row>
+
+      <v-row no-gutters class="my-10">
+        <v-col cols="2" sm="4">
+          <div>
+            <v-btn v-on:click="addToCounter" block> Click to Increment </v-btn>
+            <!-- use @ sign for v-on -->
+          </div>
+        </v-col>
+        <v-col cols="2" sm="4">
+          <div class="pl-10">
+            {{ counter }}
+          </div>
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters class="my-10">
+        <v-col cols="2" sm="4">
+          <div>
+            <p @mouseover="showMessage('Happy')">Show Happy</p>
+            <p @mouseover="showMessage('Sad')">Show Sad</p>
+          </div>
+        </v-col>
+        <v-col cols="2" sm="4">
+          <div class="pl-10">
+            <h2>{{ message }}</h2>
+          </div>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -54,6 +83,8 @@ export default {
   data: () => ({
     setShowValue: "false",
     showThis: true,
+    counter: 0,
+    message: "",
     myList: ["JavaScript", "HTML", "CSS3", "VUE"],
     people: [
       {
@@ -68,6 +99,12 @@ export default {
   }),
   methods: {
     display: () => console.log(this.setShowValue),
+    addToCounter() {
+      this.counter += 1;
+    },
+    showMessage(mood) {
+      this.message = mood;
+    },
   },
   mount: {},
 };
