@@ -1,22 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ContentHeader from "@/components/ContentHeader.vue";
-import TestRoutesPage from "@/components/TestRoutesPage.vue";
+
+import Home from "@/views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/:getKey",
     name: "home",
-    component: ContentHeader,
+    component: Home,
     children: [],
   },
   {
-    path: "/test",
-    name: "test",
-    component: TestRoutesPage,
-  },
+    path:"/",
+    component: Home
+  }
+  
 ];
 
 //How do you add multiple components to a single Route path / element on app.vue

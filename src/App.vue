@@ -32,7 +32,7 @@ export default {
   data: () => ({
     customHeaderText: "Text for header 2",
     clientName: "Fred",
-    viewTestingPage: true,
+    viewTestingPage: false,
   }),
   methods: {
     emmitReceiver() {
