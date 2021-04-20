@@ -7,14 +7,14 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/:getKey",
+    path: "/home/:getKey",
     name: "home",
     component: Home,
     children: [],
   },
   {
     path:"/",
-    component: Home
+    redirect: "/home/clientselect"
   }
   
 ];
@@ -22,8 +22,7 @@ const routes = [
 //How do you add multiple components to a single Route path / element on app.vue
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+
   routes,
 });
 

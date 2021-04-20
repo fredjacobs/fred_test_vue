@@ -2,39 +2,30 @@
     <div>
 Home
 <component :is="current_component"></component>
-<v-btn 
-@click="loadContact"
-></v-btn>
+
     </div>
 </template>
 <script>
 import AboutUs from "@/components/AboutUs.vue";
-import ContactUs from "@/components/ContactUs.vue";
+import ClientSelect from "@/components/ClientSelect.vue";
 export default {
     
 
     data:function(){
         return {
-            getKeyToComponent:{
+            getKeyToComponent:{ 
                 aboutus: "AboutUs",
-                contactus:"ContactUs"
+                clientselect:"ClientSelect"
             }
         }
 
     },
     components:{
         AboutUs:AboutUs,
-        ContactUs:ContactUs
+        ClientSelect:ClientSelect
         
     },
-    methods:{
-        loadContact(){
-            this.$router.push({
-                path:" contactus",
-            })
-        }
-
-    },
+    
     mounted(){
        // console.log(this.$route.params.getKey)
     },
