@@ -1,30 +1,19 @@
 <template>
-    <div>
-        <!--TODO DataList Items Create -->
-        <div v-for="(listItem,index) in Items" :key="index"
-
-        
-        >
-        {{listItem.title}}
-        </div>
-
+  <div>
+    <!--TODO DataList Items Create -->
+    <div v-for="(listItem, index) in Items" :key="index">
+      {{ index }} ) {{ listItem.title }} :
+      {{ listItem.description }}
     </div>
+  </div>
 </template>
 <script>
 export default {
-    data:function(){
-        return {
-            
-        }
-
-    },
-    props:[
-        'Items'
-    ]
-    
-}
+  data: function () {
+    return {};
+  },
+  props: ["Items"],
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

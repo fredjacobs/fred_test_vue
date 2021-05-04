@@ -13,16 +13,14 @@ const routes = [
     children: [],
   },
   {
-    path:"/",
-    redirect: "/home/clientselect"
-  }
-  
+    path: "/",
+    redirect: "/home/clientselect",
+  },
 ];
 
 //How do you add multiple components to a single Route path / element on app.vue
 
 const router = new VueRouter({
-
   routes,
 });
 

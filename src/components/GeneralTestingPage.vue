@@ -1,7 +1,10 @@
 /* NOTES: NEXT Class ands Style binding */
 <template>
   <div>
-    <h1>Test Everything</h1>
+    <h1 :style="[styleHeaderObj1, styleHeaderObj2]">Test Everything</h1>
+    <p :class="{ center: makeCenterText }">
+      This be a testing ground - {{ myTitle }}
+    </p>
 
     <v-container class="grey lighten-5">
       <v-row no-gutters class="my-10">
@@ -74,6 +77,15 @@
           </div>
         </v-col>
       </v-row>
+      <form @submit="onSubmit">
+        <label for="name">What is your name</label>
+        <input id="name" v-model="name" />
+        <label for="color">What is your fav color?</label>
+        <input id="color" v-model="color" />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <p>{{ color }}</p>
     </v-container>
   </div>
 </template>
@@ -82,10 +94,16 @@
 export default {
   data: () => ({
     setShowValue: "false",
+    makeCenterText: "true",
     showThis: true,
     counter: 0,
     message: "",
+    name: null,
+    color: null,
+    subject: "VUE",
+    action: "Learning",
     myList: ["JavaScript", "HTML", "CSS3", "VUE"],
+    favColor: [],
     people: [
       {
         name: "Fred",
@@ -96,6 +114,14 @@ export default {
         age: 44,
       },
     ],
+    styleHeaderObj1: {
+      fontWeight: 800,
+      color: "red",
+    },
+    styleHeaderObj2: {
+      textAlign: "center",
+      fontSize: "48px",
+    },
   }),
   methods: {
     display: () => console.log(this.setShowValue),
@@ -105,9 +131,29 @@ export default {
     showMessage(mood) {
       this.message = mood;
     },
+    onSubmit() {
+      let favColor = {
+        name: this.name,
+        color: this.color,
+      };
+      this.$emit("submittedcolor", favColor);
+
+      /* this.name = null;
+      this.color = null;
+      this.favColor.push(favColor); */
+    },
   },
-  mount: {},
+  mounted: function () {},
+  computed: {
+    myTitle() {
+      return `${this.action} ${this.subject}`;
+    },
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.center {
+  text-align: center;
+}
+</style>

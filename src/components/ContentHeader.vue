@@ -10,7 +10,7 @@
       {{ headerText }}
       <!-- v-bind shorthand : -->
       <v-btn class="ml-2"
-        ><a class="black--text" :href="testLink">Testing Router</a></v-btn
+        ><a class="black--text" :href="testlink">Test Page</a></v-btn
       >
     </div>
   </div>
@@ -19,11 +19,11 @@
 <script>
 export default {
   data: () => ({
-    testLink: "/test",
+    testlink: "test",
   }),
   props: ["headerText", "headericon"],
   mounted() {
-    this.$emit("myEvent");
+    this.$emit("myevent");
   },
 };
 </script>
