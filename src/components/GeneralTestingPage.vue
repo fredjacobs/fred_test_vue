@@ -78,30 +78,11 @@
         </v-col>
       </v-row>
       <form @submit="onSubmit">
-<<<<<<< HEAD
         <v-text-field v-model="name" label="Enter Name"></v-text-field>
 
         <v-text-field v-model="color" label="Fav Color"></v-text-field>
 
         <v-btn @click="onSubmit">Submit</v-btn>
-=======
-        
-        
-        <v-text-field
-        v-model="name"
-        label="Enter Name"
-        ></v-text-field>
-        
-        <v-text-field
-        v-model="color"
-        label="Fav Color"
-        ></v-text-field>
-        
-        <v-btn
-        @click="onSubmit"
-        >Submit</v-btn>
-       
->>>>>>> 460656e6c9c1e7c518db9d47fb1395b9d1de84e6
       </form>
 
       <p>{{ color }}</p>
@@ -117,11 +98,7 @@ export default {
     showThis: true,
     counter: 0,
     message: "",
-<<<<<<< HEAD
     name: "",
-=======
-    name: '',
->>>>>>> 460656e6c9c1e7c518db9d47fb1395b9d1de84e6
     color: null,
     subject: "VUE",
     action: "Learning",
