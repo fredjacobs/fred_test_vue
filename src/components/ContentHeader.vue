@@ -10,7 +10,8 @@
       {{ headerText }}
       <!-- v-bind shorthand : -->
       <v-btn class="ml-2"
-        ><a class="black--text" :href="testlink">Test Page</a></v-btn
+      :to="{path:'test'}"
+        >Test Page</v-btn
       >
     </div>
   </div>
