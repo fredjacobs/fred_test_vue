@@ -10,6 +10,7 @@
 
         <!-- How do you add more components to this Router tag?-->
         <router-view @myevent="emmitReceiver"> </router-view>
+        {{ $store.state.color_data.name }}
 
         <GeneralTestingPage
           v-if="viewTestingPage"
@@ -35,7 +36,7 @@ export default {
   data: () => ({
     customHeaderText: "Text for header",
     clientName: "Fred",
-    viewTestingPage: false,
+    viewTestingPage: true,
     name: null,
     color: null,
     favColorInfo: [],
@@ -46,13 +47,9 @@ export default {
       console.log(`Hello ${this.clientName}`);
     },
     displayfavcolor(favColor) {
-      this.favColorInfo.push(favColor);
-      this.message = "Hello There";
-      this.name = favColor.name;
-      this.color = favColor.color;
+      this.$store.commit("color_data/updateColor", favColor);
     },
   },
   props: {},
-  mounted() {},
 };
 </script>
