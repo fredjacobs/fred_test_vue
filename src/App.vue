@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 <template>
   <div id="app">
     <v-app>
@@ -8,9 +9,10 @@
           @myevent="emmitReceiver"
         ></ContentHeader>
 
+        {{ $store.state.color_data.name }}{{ $store.state.color_data.color }}
+
         <!-- How do you add more components to this Router tag?-->
         <router-view @myevent="emmitReceiver"> </router-view>
-        {{ $store.state.color_data.name }}
 
         <GeneralTestingPage
           v-if="viewTestingPage"
@@ -36,7 +38,7 @@ export default {
   data: () => ({
     customHeaderText: "Text for header",
     clientName: "Fred",
-    viewTestingPage: true,
+    viewTestingPage: false,
     name: null,
     color: null,
     favColorInfo: [],
@@ -51,5 +53,6 @@ export default {
     },
   },
   props: {},
+  mounted() {},
 };
 </script>

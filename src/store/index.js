@@ -8,12 +8,16 @@ export default new Vuex.Store({
   state: {
     name: "",
     color: "",
+    randomNumber: null,
   },
   mutations: {
     updateFormOne(state, payload) {
       state.name = payload.name;
       state.color = payload.color;
     },
+    newNumber(state, payload){
+      state.randomNumber = payload;
+    }
   },
   actions: {},
   modules: {

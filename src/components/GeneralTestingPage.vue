@@ -5,6 +5,7 @@
     <p :class="{ center: makeCenterText }">
       This be a testing ground - {{ myTitle }}
     </p>
+    <h1>{{ randomNumber }}</h1>
 
     <v-container class="grey lighten-5">
       <v-row no-gutters class="my-10">
@@ -127,6 +128,7 @@ export default {
     display: () => console.log(this.setShowValue),
     addToCounter() {
       this.counter += 1;
+      this.$store.commit("newNumber", this.counter);
     },
     showMessage(mood) {
       this.message = mood;
@@ -148,6 +150,9 @@ export default {
     myTitle() {
       return `${this.action} ${this.subject}`;
     },
+    randomNumber(){
+      return this.$store.state.randomNumber;
+    }
   },
 };
 </script>
