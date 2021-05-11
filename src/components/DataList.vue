@@ -1,17 +1,28 @@
 <template>
   <div>
     <!--TODO DataList Items Create -->
-    <div v-for="(listItem, index) in Items" :key="index">
-      {{ index }} ) {{ listItem.title }} :
-      {{ listItem.description }}
-    </div>
+    <slot v-for="(listItem) in Items" name="listitem"
+    
+     :ItemData="listItem"
+     @onselect="onSelect"
+     >
+     
+    </slot>
   </div>
 </template>
 <script>
+
+
 export default {
+   methods:{
+        onSelect(val){
+            this.$emit("onselect",val)
+        }
+    },
   data: function () {
     return {};
   },
+  
   props: ["Items"],
 };
 </script>
