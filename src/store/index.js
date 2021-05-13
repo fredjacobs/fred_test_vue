@@ -9,15 +9,33 @@ export default new Vuex.Store({
     name: "",
     color: "",
     randomNumber: null,
+    currentClient: "John",
+    myData: [
+      {
+        name: "Freddie Kruger",
+        description: "Private Home Flooring Job",
+      },
+      {
+        name: "John Cleese",
+        description: "Kitchen Rebuild",
+      },
+      {
+        name: "Bruce Lee",
+        description: "Shower Installation",
+      },
+    ],
   },
   mutations: {
     updateFormOne(state, payload) {
       state.name = payload.name;
       state.color = payload.color;
     },
-    newNumber(state, payload){
+    newNumber(state, payload) {
       state.randomNumber = payload;
-    }
+    },
+    updateCurrentClient(state, payload) {
+      state.currentClient = payload;
+    },
   },
   actions: {},
   modules: {

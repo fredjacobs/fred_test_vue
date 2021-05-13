@@ -1,11 +1,18 @@
 <template>
   <div>
-    Client Select
-    <DataList :Items="myData" @onselect="onSelect">
-      <template #listitem="slotprops">
+    <h3 class="text-center py-6">Please Select a Client:</h3>
+    <DataList :Items="myData" @onselect="onselect">
+      <template #listitem="slotProps">
+        <DataListItem
+          v-if="showListOne"
+          :ItemData="slotProps.ItemData"
+          @onselect="onselect"
+        >
+        </DataListItem>
         <DataListItem2
-          :ItemData="slotprops.ItemData"
-          @onselect="slotprops.onSelect"
+          v-if="showListTwo"
+          :ItemData="slotProps.ItemData"
+          @onselect="onselect"
         >
         </DataListItem2>
       </template>
@@ -14,33 +21,55 @@
 </template>
 <script>
 import DataList from "@/components/DataList.vue";
+import DataListItem from "@/components/DataListItem.vue";
 import DataListItem2 from "@/components/DataListItem2.vue";
 
 export default {
   methods: {
-    onSelect(val) {
+    onselect(val) {
       console.log(val);
+      this.$store.commit('updateCurrentClient', val.title);
+      this.$router.push('/client');
     },
+    checkForTitle() {},
   },
   data: function () {
     return {
-      myData: [
-        {
-          title: "item1",
-          description: "Wash car",
-        },
-        {
-          title: "item2",
-          description: "Do exercise",
-        },
-      ],
+      showListOne: true,
+      showListTwo: false,
     };
   },
   components: {
     DataList: DataList,
+    DataListItem: DataListItem,
     DataListItem2: DataListItem2,
   },
+  computed: {
+    myData() {
+      const dataSet = this.$store.state.myData;
+      dataSet.forEach((obj) => (obj["title"] = obj["name"]));
+
+      return dataSet;
+    },
+  },
 };
+
+/* const myArr = [
+  {
+    name: "John",
+    job: "Devleoper",
+  },
+  {
+    name: "Peter",
+    job: "Muso",
+  },
+];
+
+const firstElement = Object.keys(myArr[0])[0];
+
+const hasGot = myArr.every((el) => firstElement in el);
+
+document.querySelector("p").textContent = hasGot; */
 </script>
 
 <style scoped></style>

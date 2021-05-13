@@ -10,9 +10,9 @@
       {{ headerText }}
       <!-- v-bind shorthand : -->
       <v-btn class="ml-2" :to="{ path: 'test' }">Test Page</v-btn>
-      <router-link to="/form"
-      class="mx-6 font-weight-light white--text 0.2rem"
-      >See Form</router-link>
+      <router-link to="/form" class="mx-6 font-weight-light white--text 0.2rem"
+        >See Form</router-link
+      >
     </div>
   </div>
 </template>

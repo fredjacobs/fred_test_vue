@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 import Home from "@/views/Home.vue";
 import CustomForm from "@/components/CustomForm.vue";
+import Client from "@/views/Client.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/form",
     name: "customForm",
     component: CustomForm,
+  },
+  {
+    path: "/client",
+    name: "clientPage",
+    component: Client,
   },
 ];
 

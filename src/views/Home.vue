@@ -1,6 +1,9 @@
 <template>
   <div>
-    Home
+    <v-banner elevation="7" width="450" class="mx-auto">
+      <h1 class="text-center py-6">Home</h1>
+    </v-banner>
+
     <component :is="current_component"></component>
   </div>
 </template>
