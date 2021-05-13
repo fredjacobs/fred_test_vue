@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h3 class="text-center py-6">Please Select a Client:</h3>
+    <h3 class="text-center pt-6">Please Select a Client:</h3>
+    <p class="text-center">
+      <v-btn @click="toggleView">Toggle View</v-btn>
+    </p>
     <DataList :Items="myData" @onselect="onselect">
       <template #listitem="slotProps">
         <DataListItem
@@ -28,8 +31,17 @@ export default {
   methods: {
     onselect(val) {
       console.log(val);
-      this.$store.commit('updateCurrentClient', val.title);
-      this.$router.push('/client');
+      this.$store.commit("updateCurrentClient", val.title);
+      this.$router.push("/client");
+    },
+    toggleView() {
+      if (this.showListOne) {
+        this.showListOne = false;
+        this.showListTwo = true;
+      } else {
+        this.showListOne = true;
+        this.showListTwo = false;
+      }
     },
     checkForTitle() {},
   },

@@ -3,9 +3,7 @@
     <v-banner elevation="7" width="450" class="mx-auto">
       <h1 class="text-center py-6">Client</h1>
     </v-banner>
-    <div>
-      {{ curClient }}
-    </div>
+
     <ClientDetails />
   </div>
 </template>
@@ -23,20 +21,10 @@ export default {
     curClient() {
       return this.$store.state.currentClient;
     },
-    client() {
-      const clients = this.$store.state.myData;
-      const theClient = this.$store.state.currentClient;
-      let client = "";
-
-      for (client in clients) {
-        if (client.title === theClient) client = client.title;
-      }
-      return client;
-    },
   },
-  components:{
-      ClientDetails:ClientDetails,
-  }
+  components: {
+    ClientDetails: ClientDetails,
+  },
 };
 </script>
 

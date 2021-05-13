@@ -5,6 +5,7 @@
       <v-main>
         <ContentHeader
           :headerText="customHeaderText"
+          :user="currentUser"
           headericon="mdi-account-circle"
           @myevent="emmitReceiver"
         ></ContentHeader>
@@ -36,8 +37,8 @@ export default {
     //ContentHeader,
   },
   data: () => ({
-    customHeaderText: "Text for header",
-    clientName: "Fred",
+    customHeaderText: "Welcome",
+    currentUser: "Fred",
     viewTestingPage: false,
     name: null,
     color: null,

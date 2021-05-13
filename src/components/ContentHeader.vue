@@ -7,11 +7,11 @@
       <v-icon color="#fff" class="text-h5 vertical-align" large>
         {{ headericon }}
       </v-icon>
-      {{ headerText }}
+      {{ headerText }} {{ user }}
       <!-- v-bind shorthand : -->
-      <v-btn class="ml-2" :to="{ path: 'test' }">Test Page</v-btn>
+      <v-btn class="ml-2" :to="{ path: '/' }">HOME</v-btn>
       <router-link to="/form" class="mx-6 font-weight-light white--text 0.2rem"
-        >See Form</router-link
+        >Form</router-link
       >
     </div>
   </div>
@@ -22,7 +22,7 @@ export default {
   data: () => ({
     testlink: "test",
   }),
-  props: ["headerText", "headericon"],
+  props: ["headerText", "headericon", "user"],
   mounted() {
     this.$emit("myevent");
   },
