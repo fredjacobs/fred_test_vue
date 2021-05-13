@@ -6,8 +6,8 @@
         <slot
           v-for="listItem in Items"
           name="listitem"
-          :ItemData="listItem"
-          @onselect="onselect"
+          :ItemData="enforcetitle(listItem)"
+          :onselect="onselect"
         >
         </slot>
       </v-list>
@@ -18,14 +18,23 @@
 export default {
   methods: {
     onselect(val) {
+      console.log('datalist');
+      console.log(val);
       this.$emit("onselect", val);
     },
+    enforcetitle(val){
+     val.title =  val[this.keyforlabel] || 'no value' 
+     return val;
+
+    }
+
+    ,
   },
   data: function () {
     return {};
   },
 
-  props: ["Items"],
+  props: ["Items",'keyforlabel'],
 };
 </script>
 

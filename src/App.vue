@@ -47,7 +47,7 @@ export default {
   }),
   methods: {
     emmitReceiver() {
-      console.log(`Hello ${this.clientName}`);
+      console.log(`Hello ${this.$store.state.currentClient}`);
     },
     displayfavcolor(favColor) {
       this.$store.commit("color_data/updateColor", favColor);

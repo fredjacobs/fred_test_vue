@@ -12,15 +12,15 @@ export default new Vuex.Store({
     currentClient: "John",
     myData: [
       {
-        name: "Freddie Kruger",
+        acc: "Freddie Kruger",
         description: "Private Home Flooring Job",
       },
       {
-        name: "John Cleese",
+        acc: "John Cleese",
         description: "Kitchen Rebuild",
       },
       {
-        name: "Bruce Lee",
+        acc: "Bruce Lee",
         description: "Shower Installation",
       },
     ],

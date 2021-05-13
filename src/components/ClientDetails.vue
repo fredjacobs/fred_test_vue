@@ -3,7 +3,7 @@
     <v-card class="mx-auto my-10" width="800">
       
       <v-card-title>Client Name:</v-card-title>
-      <v-card-subtitle>{{ client.name }}</v-card-subtitle>
+      <v-card-subtitle>{{ client.title }}</v-card-subtitle>
       <v-card-title>Job Description:</v-card-title>
       <v-card-subtitle>{{ client.description }}</v-card-subtitle>
       <v-card-text></v-card-text>

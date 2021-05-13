@@ -4,20 +4,15 @@
     <p class="text-center">
       <v-btn @click="toggleView">Toggle View</v-btn>
     </p>
-    <DataList :Items="myData" @onselect="onselect">
+    <DataList :Items="$store.state.myData" @onselect="onselect" keyforlabel='acc'>
       <template #listitem="slotProps">
-        <DataListItem
-          v-if="showListOne"
+        <Component :is="componentType"
+         
           :ItemData="slotProps.ItemData"
-          @onselect="onselect"
+          @onselect="slotProps.onselect"
         >
-        </DataListItem>
-        <DataListItem2
-          v-if="showListTwo"
-          :ItemData="slotProps.ItemData"
-          @onselect="onselect"
-        >
-        </DataListItem2>
+        </Component>
+        
       </template>
     </DataList>
   </div>
@@ -30,25 +25,21 @@ import DataListItem2 from "@/components/DataListItem2.vue";
 export default {
   methods: {
     onselect(val) {
+      console.log('clienselect');
       console.log(val);
       this.$store.commit("updateCurrentClient", val.title);
       this.$router.push("/client");
     },
     toggleView() {
-      if (this.showListOne) {
-        this.showListOne = false;
-        this.showListTwo = true;
-      } else {
-        this.showListOne = true;
-        this.showListTwo = false;
-      }
+     
+        this.componentType =  this.componentType == "DataListItem"?'DataListItem2':'DataListItem';
+     
     },
     checkForTitle() {},
   },
   data: function () {
     return {
-      showListOne: true,
-      showListTwo: false,
+    componentType:"DataListItem"
     };
   },
   components: {
@@ -56,14 +47,7 @@ export default {
     DataListItem: DataListItem,
     DataListItem2: DataListItem2,
   },
-  computed: {
-    myData() {
-      const dataSet = this.$store.state.myData;
-      dataSet.forEach((obj) => (obj["title"] = obj["name"]));
-
-      return dataSet;
-    },
-  },
+  
 };
 
 /* const myArr = [
