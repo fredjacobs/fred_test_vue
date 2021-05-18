@@ -12,6 +12,8 @@
       <v-btn class="ml-2" :to="{ path: '/' }">HOME</v-btn>
       <router-link to="/form" class="mx-6 font-weight-light white--text 0.2rem"
         >Form</router-link
+      >  <router-link to="/notes" class="mx-6 font-weight-light white--text 0.2rem"
+        >My Notes</router-link
       >
     </div>
   </div>

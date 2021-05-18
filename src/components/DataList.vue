@@ -8,6 +8,7 @@
           name="listitem"
           :ItemData="enforcetitle(listItem)"
           :onselect="onselect"
+          :show-info="false"
         >
         </slot>
       </v-list>

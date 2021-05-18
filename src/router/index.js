@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import CustomForm from "@/components/CustomForm.vue";
 import Client from "@/views/Client.vue";
+import Notes from "@/views/Notes.vue";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,12 @@ const routes = [
     name: "clientPage",
     component: Client,
   },
+  {
+    path:"/notes",
+    name:"notes",
+    component: Notes,
+
+  }
 ];
 
 //How do you add multiple components to a single Route path / element on app.vue

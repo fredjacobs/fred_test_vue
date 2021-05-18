@@ -12,6 +12,17 @@
           }}</v-btn>
         </v-list-item-title>
       </v-list-item-content>
+
+      <v-list-item-action>
+          <v-btn icon @click="showinfo = !showinfo">
+            <v-icon color="grey lighten-1">mdi-information</v-icon>
+          </v-btn>
+        </v-list-item-action>
+      
+    </v-list-item>
+
+    <v-list-item v-if="showinfo" class="more-info">
+      
       <v-list-item-content>
         {{ ItemData.description }}
       </v-list-item-content>
@@ -21,7 +32,10 @@
 <script>
 export default {
   data: function () {
-    return {};
+    return {
+      showinfo: false,
+      
+    };
   },
   props: ["ItemData"],
   methods: {
