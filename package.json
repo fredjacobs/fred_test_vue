@@ -46,7 +46,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-unsaved-vars": "off",
+      "no-unused-vars": "off",
       "no-unreachable": "off"
     }
   },
