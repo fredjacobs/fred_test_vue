@@ -15,6 +15,9 @@
       >  <router-link to="/notes" class="mx-6 font-weight-light white--text 0.2rem"
         >My Notes</router-link
       >
+      <router-link to="/testingstyling" class="mx-6 font-weight-light white--text 0.2rem"
+        >Styling Test</router-link
+      >
     </div>
   </div>
 </template>

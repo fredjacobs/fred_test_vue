@@ -9,19 +9,31 @@ export default new Vuex.Store({
     name: "",
     color: "",
     randomNumber: null,
-    currentClient: "John",
+    currentClient: "",
     myData: [
       {
         acc: "Freddie Kruger",
         description: "Private Home Flooring Job",
+        quote: 20000,
+        
       },
       {
         acc: "John Cleese",
-        description: "Kitchen Rebuild",
+        description: null,
+        quote: 0,
+        
       },
       {
         acc: "Bruce Lee",
         description: "Shower Installation",
+        quote:12000,
+        
+      },
+      {
+        acc: "Peter Seller",
+        description: "Kitchen Overhual",
+        quote:5000,
+        
       },
     ],
   },

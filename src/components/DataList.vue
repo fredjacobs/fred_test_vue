@@ -1,41 +1,37 @@
 <template>
   <div>
     <!--TODO DataList Items Create -->
-    <v-card max-width="90%" class="mx-auto">
-      <v-list>
-        <slot
-          v-for="listItem in Items"
-          name="listitem"
-          :ItemData="enforcetitle(listItem)"
-          :onselect="onselect"
-          :show-info="false"
-        >
-        </slot>
-      </v-list>
-    </v-card>
+
+    <slot
+      v-for="listItem in Items"
+      name="listitem"
+      :ItemData="enforcetitle(listItem)"
+      :onselect="onselect"
+      
+      
+      
+    >
+    </slot>
   </div>
 </template>
 <script>
 export default {
   methods: {
     onselect(val) {
-      console.log('datalist');
+      console.log("datalist");
       console.log(val);
       this.$emit("onselect", val);
     },
-    enforcetitle(val){
-     val.title =  val[this.keyforlabel] || 'no value' 
-     return val;
-
-    }
-
-    ,
+    enforcetitle(val) {
+      val.title = val[this.keyforlabel] || "no value";
+      return val;
+    },
   },
   data: function () {
     return {};
   },
 
-  props: ["Items",'keyforlabel'],
+  props: ["Items", "keyforlabel"],
 };
 </script>
 
