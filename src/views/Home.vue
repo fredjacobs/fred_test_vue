@@ -11,7 +11,7 @@
 import AboutUs from "@/components/AboutUs.vue";
 import ClientSelect from "@/components/ClientSelect.vue";
 import TestRoutesPage from "@/components/TestRoutesPage.vue";
-import TestingStyling from "@/components/TestingStyling.vue";
+
 
 export default {
   data: function () {
@@ -20,7 +20,7 @@ export default {
         aboutus: "AboutUs",
         clientselect: "ClientSelect",
         test: "TestRoutesPage",
-        teststyling:"TestingStyling",
+        
       },
     };
   },
@@ -28,7 +28,7 @@ export default {
     AboutUs: AboutUs,
     ClientSelect: ClientSelect,
     TestRoutesPage: TestRoutesPage,
-    TestingStyling:TestingStyling,
+    
   },
 
   mounted() {
