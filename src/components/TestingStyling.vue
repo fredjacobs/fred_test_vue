@@ -1,20 +1,23 @@
 <template>
-  <div>
+  <div class="wh-max">
     <v-container fluid fill-height pa-0>
       <v-row
         no-gutters
         :class="{ 'd-block': isSmallerScreens() }"
         height="100%"
+        class="fill-height"
       >
         <v-col 
-          class="blue darken-4 home-logo-container d-flex"
+          
+          class="blue darken-4 home-logo-container d-flex wh-max justify-center align-center col-12"
           align-self="center"
         >
-          <v-img src="@/assets/KINGDOM.png" width="300" height="300"></v-img>
+          <v-img src="@/assets/KINGDOM.png" width="300" height="300" contain></v-img>
         </v-col>
 
         <v-col 
-          class="white lighten-3 pa-10 d-flex"
+        
+          class="white lighten-3 pa-10 d-flex justify-center align-center"
           :class="isSmallerScreens() ? 'full-form' : 'form-minimum'"
         >
           <v-form ref="form" lazy-validation>
@@ -55,5 +58,9 @@ export default {
 }
 .home-logo-container {
   max-width: calc(100% - 640px);
+}
+.wh-max {
+  width:100%;
+  height:100%;
 }
 </style>
