@@ -3,7 +3,7 @@
 
 
 <v-container no-gutters>
-<v-layout row wrap no-gutters>
+<v-layout row wrap no-gutters stretch>
 
     <v-flex sx12 md6 blue>
         <v-img src="@/assets/KINGDOM.png"></v-img>

@@ -1,19 +1,19 @@
 <template>
   <div>
-    <v-container fluid fill-height pa-0>
+    <v-container fluid fill-height pa-0 stretch>
       <v-row
         no-gutters
         :class="{ 'd-block': isSmallerScreens() }"
         height="100%"
       >
-        <v-col 
+        <v-col
           class="blue darken-4 home-logo-container d-flex"
           align-self="center"
         >
           <v-img src="@/assets/KINGDOM.png" width="300" height="300"></v-img>
         </v-col>
 
-        <v-col 
+        <v-col
           class="white lighten-3 pa-10 d-flex"
           :class="isSmallerScreens() ? 'full-form' : 'form-minimum'"
         >
@@ -27,8 +27,6 @@
             <v-checkbox label="Do you agree?" required></v-checkbox>
 
             <v-btn color="success" class="mr-4"> SEND </v-btn>
-
-           
           </v-form>
         </v-col>
       </v-row>
