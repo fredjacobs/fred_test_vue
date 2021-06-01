@@ -18,6 +18,13 @@
       <router-link to="/testingstyling" class="mx-6 font-weight-light white--text 0.2rem"
         >Styling Test</router-link
       >
+      <v-btn
+      color="#ffffff"
+      icon
+      
+      >
+      <v-icon>mdi-lightbulb-on</v-icon>
+      </v-btn>
     </div>
   </div>
 </template>

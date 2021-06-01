@@ -3,6 +3,7 @@
     <v-btn @click="addNote">Add Note</v-btn>
     <v-text-field v-model="newnote" label="New Note"></v-text-field>
     <div class="mainDiv">Notes</div>
+    <p>CSS Classes</p>
   </div>
 </template>
 <script>

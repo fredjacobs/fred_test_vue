@@ -11,7 +11,7 @@
         <v-col
           class="blue darken-4 d-flex wh-max justify-center align-center col-12"
           align-self="center"
-          :class="{'home-logo-container' : !isSmallerScreens() }"
+          :class="{'home-logo-container' : !isSmallerScreens() }" 
         >
           <v-img
             src="@/assets/KINGDOM.png"
@@ -22,8 +22,13 @@
         </v-col>
 
         <v-col
-          class="white lighten-3 pa-10 d-flex justify-center align-center"
-          :class="isSmallerScreens() ? 'full-form' : 'form-minimum'"
+          class="pa-10 d-flex justify-center align-center bg-1"
+          :class="Object.assign(getTheme(),{
+            'full-form' : isSmallerScreens(),
+            'form-minimum': !isSmallerScreens()
+          }
+            
+          )"
         >
           <v-form ref="form" lazy-validation>
             <v-text-field label="Name" required></v-text-field>

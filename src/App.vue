@@ -52,8 +52,20 @@ export default {
     displayfavcolor(favColor) {
       this.$store.commit("color_data/updateColor", favColor);
     },
+
   },
   props: {},
-  mounted() {},
+  mounted() {
+    this.$vuetify.theme.dark = true;
+  },
 };
 </script>
+<style>
+.theme--dark.bg-1{
+  background-color: black;
+}
+.theme--light.bg-1{
+  background-color: white;
+}
+
+</style>
