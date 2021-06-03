@@ -56,7 +56,7 @@ export default {
   },
   props: {},
   mounted() {
-    this.$vuetify.theme.dark = true;
+    
   },
 };
 </script>
