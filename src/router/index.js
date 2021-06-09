@@ -6,6 +6,7 @@ import CustomForm from "@/components/CustomForm.vue";
 import Client from "@/views/Client.vue";
 import Notes from "@/views/Notes.vue";
 import TestingStyling from "@/components/TestingStyling.vue";
+import PageNotFound from "@/views/PageNotFound.vue";
 
 
 Vue.use(VueRouter);
@@ -41,6 +42,10 @@ const routes = [
     name: "testingtyling",
     component: TestingStyling,
   },
+  {
+    path:"*",
+    component:PageNotFound,
+  }
   
 ];
 

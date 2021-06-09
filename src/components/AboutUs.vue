@@ -5,8 +5,8 @@ About US
     
 </template>
 <script>
-import axios from "axios";
 
+import {getFunction} from "@/request/Post";
 export default {
     data:function(){
         return {
@@ -15,7 +15,10 @@ export default {
 
     },
     mounted(){
-        axios.get("https://reqres.in/api/users?page=2")
+        getFunction({
+            url: "1https://reqres.in/api/users?page=2",
+            data:{}
+        })
         .then(function(response){
             console.log(response);
         }.bind(this))

@@ -48,6 +48,9 @@ export default new Vuex.Store({
     updateCurrentClient(state, payload) {
       state.currentClient = payload;
     },
+    setErrorMessage(state,payload){
+      console.log("ERROR");
+    }
   },
   actions: {},
   modules: {
