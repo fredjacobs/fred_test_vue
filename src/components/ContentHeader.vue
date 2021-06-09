@@ -24,6 +24,9 @@
           >mdi-lightbulb-outline</v-icon
         >
       </v-btn>
+      <v-btn
+      @click="increment"
+      >Add To Number</v-btn>
     </div>
   </div>
 </template>
@@ -36,22 +39,32 @@ export default {
   props: ["headerText", "headericon", "user"],
   mounted() {
     this.$emit("myevent");
-    this.$vuetify.theme.dark = false;
+    this.$vuetify.theme.isDark = this.$store.state.isDarkTheme;
   },
   methods: {
     changeTheme() {
-      /* this.$vuetify.theme.dark = this.$vuetify.theme.isDark
-        ? !this.$vuetify.theme.isDark
-        : this.$vuetify.theme.isDark; */
-      //#################//
-      if (this.$vuetify.theme.dark) {
+
+      //this.$store.commit("setTheme", true);
+          /* this.$vuetify.theme.dark = this.$vuetify.theme.isDark
+          ? !this.$vuetify.theme.isDark
+          : this.$vuetify.theme.isDark; */
+        //#################//
+        if (this.$vuetify.theme.dark) {
         this.$vuetify.theme.dark = false;
       } else {
         this.$vuetify.theme.dark = true;
       }
+     this.$store.state.isDarkTheme = true;
     },
-  },
-};
+    increment(){
+      this.$store.commit("increment");
+    }
+
+      
+      
+    },
+  }
+
 </script>
 
 <style scoped>

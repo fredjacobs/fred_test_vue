@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 import color_data from "@/store/modules/color_data.js";
 
 Vue.use(Vuex);
@@ -10,30 +11,28 @@ export default new Vuex.Store({
     color: "",
     randomNumber: null,
     currentClient: "",
+    isDarkTheme:false,
+    myNumber:null,
     myData: [
       {
         acc: "Freddie Kruger",
         description: "Private Home Flooring Job",
         quote: 20000,
-        
       },
       {
         acc: "John Cleese",
         description: null,
         quote: 0,
-        
       },
       {
         acc: "Bruce Lee",
         description: "Shower Installation",
-        quote:12000,
-        
+        quote: 12000,
       },
       {
         acc: "Peter Seller",
         description: "Kitchen Overhual",
-        quote:5000,
-        
+        quote: 5000,
       },
     ],
   },
@@ -48,6 +47,10 @@ export default new Vuex.Store({
     updateCurrentClient(state, payload) {
       state.currentClient = payload;
     },
+    increment(state){
+      state.myNumber++;
+    }
+   
   },
   actions: {},
   modules: {
