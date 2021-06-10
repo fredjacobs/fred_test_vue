@@ -12,7 +12,6 @@ import AboutUs from "@/components/AboutUs.vue";
 import ClientSelect from "@/components/ClientSelect.vue";
 import TestRoutesPage from "@/components/TestRoutesPage.vue";
 
-
 export default {
   data: function () {
     return {
@@ -20,7 +19,6 @@ export default {
         aboutus: "AboutUs",
         clientselect: "ClientSelect",
         test: "TestRoutesPage",
-        
       },
     };
   },
@@ -28,11 +26,18 @@ export default {
     AboutUs: AboutUs,
     ClientSelect: ClientSelect,
     TestRoutesPage: TestRoutesPage,
-    
   },
 
   mounted() {
-    // console.log(this.$route.params.getKey)
+    
+  },
+  watch:{
+    $route(){
+var key = this.getKeyToComponent[this.$route.params.getKey];
+    if (key === null || key === undefined) {
+      this.$router.push("/");
+    }
+    }
   },
   computed: {
     current_component() {

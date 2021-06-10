@@ -47,10 +47,9 @@ export default new Vuex.Store({
     updateCurrentClient(state, payload) {
       state.currentClient = payload;
     },
-    increment(state){
-      state.myNumber++;
+    setErrorMessage(state,payload){
+      console.log("ERROR");
     }
-   
   },
   actions: {},
   modules: {

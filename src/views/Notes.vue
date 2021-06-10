@@ -4,7 +4,7 @@
     <v-text-field v-model="newnote" label="New Note"></v-text-field>
     <div class="mainDiv">Notes</div>
     <p>CSS Classes</p>
-    <p>LOcal Storage - Remember Theme</p>
+    <p>Local Storage - Remember Theme</p>
   </div>
 </template>
 <script>
