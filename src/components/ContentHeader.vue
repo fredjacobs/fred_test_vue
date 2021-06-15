@@ -24,9 +24,7 @@
           >mdi-lightbulb-outline</v-icon
         >
       </v-btn>
-      <v-btn
-      @click="increment"
-      >Add To Number</v-btn>
+      <v-btn @click="increment">Add To Number</v-btn>
     </div>
   </div>
 </template>
@@ -38,33 +36,38 @@ export default {
   }),
   props: ["headerText", "headericon", "user"],
   mounted() {
+    //localStorage.setItem("isDarkThemeTrue", true);
+    const themeState = localStorage.getItem("isDarkThemeTrue");
+    //this.$store.commit("updateTheme", themeState);
+    //this.$vuetify.theme.dark = this.$store.state.isDarkTheme;
+    if(themeState === 'true'){
+       this.$vuetify.theme.dark = true;
+    } else {
+      this.$vuetify.theme.dark = false;
+    }
+    
+    console.log("Theme State" + themeState);
+    console.log("Dark Theme: " + this.$vuetify.theme.dark);
+    
     this.$emit("myevent");
-    this.$vuetify.theme.isDark = this.$store.state.isDarkTheme;
   },
   methods: {
     changeTheme() {
-
-      //this.$store.commit("setTheme", true);
-          /* this.$vuetify.theme.dark = this.$vuetify.theme.isDark
-          ? !this.$vuetify.theme.isDark
-          : this.$vuetify.theme.isDark; */
-        //#################//
-        if (this.$vuetify.theme.dark) {
+      if (this.$vuetify.theme.dark) {
         this.$vuetify.theme.dark = false;
+        localStorage.setItem("isDarkThemeTrue", "false");
+        //this.$store.commit("updateTheme", false);
       } else {
         this.$vuetify.theme.dark = true;
+        localStorage.setItem("isDarkThemeTrue", "true");
+        //this.$store.commit("updateTheme", true);
       }
-     this.$store.state.isDarkTheme = true;
     },
-    increment(){
+    increment() {
       this.$store.commit("increment");
-    }
-
-      
-      
     },
-  }
-
+  },
+};
 </script>
 
 <style scoped>

@@ -7,11 +7,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+
     name: "",
     color: "",
     randomNumber: null,
     currentClient: "",
-    isDarkTheme:false,
+    isDarkTheme:'',
     myNumber:null,
     myData: [
       {
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     },
     setErrorMessage(state,payload){
       console.log("ERROR");
+    },
+    updateTheme(state,payload){
+      state.isDarkTheme = payload;
     }
   },
   actions: {},
