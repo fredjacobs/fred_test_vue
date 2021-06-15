@@ -33,7 +33,7 @@ export default {
   },
   watch:{
     $route(){
-var key = this.getKeyToComponent[this.$route.params.getKey];
+    var key = this.getKeyToComponent[this.$route.params.getKey];
     if (key === null || key === undefined) {
       this.$router.push("/");
     }
