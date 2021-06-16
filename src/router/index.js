@@ -7,6 +7,7 @@ import Client from "@/views/Client.vue";
 import Notes from "@/views/Notes.vue";
 import TestingStyling from "@/components/TestingStyling.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
+import ContactCreate from "@/components/ContactCreate.vue";
 
 
 Vue.use(VueRouter);
@@ -45,6 +46,11 @@ const routes = [
   {
     path:"*",
     component:PageNotFound,
+  },
+  {
+    path:"/contact-create",
+    name: "create",
+    component: ContactCreate,
   }
   
 ];
