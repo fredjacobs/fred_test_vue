@@ -5,6 +5,11 @@
     <div class="mainDiv">Notes</div>
     <p>CSS Classes</p>
     <p>Local Storage - Remember Theme</p>
+    <ul>
+      <li><a href="https://vue-chartjs.org/">https://vue-chartjs.org/</a></li>
+      <li><a href="https://saigesp.github.io/vue-d3-charts/#/">https://saigesp.github.io/vue-d3-charts/#/</a></li>
+      <li></li>
+    </ul>
   </div>
 </template>
 <script>
