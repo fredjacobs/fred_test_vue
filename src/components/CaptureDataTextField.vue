@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card class="pa-6" elevation="2">
+  <div class="">
+    <v-card class="pa-6"  elevation="2">
       <component
         :is="type"
         :label="label"

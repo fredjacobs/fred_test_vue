@@ -4,21 +4,17 @@
       <v-btn @click="toggleView">Toggle View</v-btn>
     </p>
     <h3 class="text-center pt-4">Please Select a Client:</h3>
-    
+
     <DataList
       :Items="$store.state.myData"
       @onselect="onselect"
       keyforlabel="acc"
-      
     >
       <template #listitem="slotProps">
         <Component
           :is="componentType"
           :ItemData="slotProps.ItemData"
           @onselect="slotProps.onselect"
-          
-          
-          
         >
         </Component>
       </template>

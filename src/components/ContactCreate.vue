@@ -4,6 +4,7 @@
       class="d-flex justify-center amber accent-4 white--text py-2 text-h4 mb-6"
       >Contact Create</v-card
     >
+    <TextDivider text="Client Details" />
     <v-alert
       v-if="string_empty === true"
       border="top"
@@ -27,8 +28,36 @@
     <v-row class="d-flex">
       <!--#################-->
 
-      <!--#################-->
+      </v-row>
+
+    <v-row class="d-flex">
+      <v-col cols="12" md="6" class="">
+        <CaptureDataTextField
+          type="v-text-field"
+          label="name"
+          icon="mdi-phone"
+          click_icon="mdi-google-play"
+          @add_contact_details="update_phone"
+        />
+      </v-col>
+
+      <v-col cols="12" md="6" class="">
+        <CaptureDataTextField
+          type="v-text-field"
+          label="email"
+          enter_value="email"
+          icon="mdi-home-map-marker"
+          click_icon="mdi-google-play"
+          @add_contact_details="update_address"
+          :extra_attributes="{
+            outlined: true,
+          }"
+        />
+      </v-col>
     </v-row>
+
+      <!--#################-->
+    
 
     <v-row class="d-flex">
       <v-col cols="12" md="6" class="">
@@ -38,7 +67,6 @@
           icon="mdi-phone"
           click_icon="mdi-google-play"
           @add_contact_details="update_phone"
-         
         />
       </v-col>
 
@@ -56,6 +84,9 @@
         />
       </v-col>
     </v-row>
+
+
+
     <v-row align="center" justify="space-around">
       <v-btn
         width="300px"
@@ -70,11 +101,13 @@
 
 <script>
 import CaptureDataTextField from "@/components/CaptureDataTextField.vue";
+import TextDivider from "@/components/TextDivider.vue";
 //import CaptureDataTextArea from "@/components/CaptureDataTextArea.vue";
 
 export default {
   components: {
     CaptureDataTextField,
+    TextDivider,
     //CaptureDataTextArea,
   },
   data: function () {
@@ -98,14 +131,11 @@ export default {
     };
   },
   methods: {
-
-    create_contact(){
-
+    create_contact() {
       //
     },
 
-
-  /*   add_phone_number() {
+    /*   add_phone_number() {
       this.contact_phone_number = this.phone_number;
     }, */
 
@@ -114,10 +144,10 @@ export default {
       this.contact_email = "";
     },
     update_phone(value) {
-    this.phone_number_list = value;
+      this.phone_number_list = value;
     },
     update_address(value) {
-     this.address_list = value;
+      this.address_list = value;
     },
   },
   props: ["getKey"],
