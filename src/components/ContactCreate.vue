@@ -42,7 +42,7 @@
             <v-list-item-content>
               <v-list-item-title>{{ new_contact }}</v-list-item-title>
               <v-btn icon> 
-                <v-icon>mdi-trash-can-outline/v-icon>
+                <v-icon>mdi-trash-can-outline</v-icon>
                  </v-btn>
             </v-list-item-content>
           </v-list-item>
