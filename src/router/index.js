@@ -8,6 +8,7 @@ import Notes from "@/views/Notes.vue";
 import TestingStyling from "@/components/TestingStyling.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 import ContactCreate from "@/components/ContactCreate.vue";
+import ObjectNinjaDojo from "@/components/ObjectNinjaDojo.vue";
 
 
 Vue.use(VueRouter);
@@ -27,6 +28,11 @@ const routes = [
     path: "/form",
     name: "customForm",
     component: CustomForm,
+  },
+  {
+    path: "/ondojo",
+    name: "ondojo",
+    component: ObjectNinjaDojo,
   },
   {
     path: "/client",

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="text-divider py-6" >{{ text }}</div>
+    <div class="text-divider py-6 px-4"  >{{ text }}</div>
   </div>
 </template>
 <script>
 export default {
   data: function () {
-    return {};
+    return {};   
   },
   props: ["text"],
 };
@@ -21,7 +21,7 @@ export default {
   display: flex;
   align-items: center;
 }
-
+     
 .text-divider::before,
 .text-divider::after {
   content: "";
@@ -30,11 +30,5 @@ export default {
   flex-grow: 1;
 }
 
-.text-divider::before {
-  margin-right: 20px;
-}
 
-.text-divider::after {
-  margin-left: 20px;
-}
 </style>
