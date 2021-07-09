@@ -1,6 +1,6 @@
 <template>
   <v-card class="px-4">
-    <v-card-title>Form Fields Here</v-card-title>
+    <v-card-title>Your Form Fields</v-card-title>
     <Component v-for="item in fieldType" :key="item.type" :is="item.type" class="field_component">
     </Component>
   </v-card>

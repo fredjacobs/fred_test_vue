@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-2" align="center" justify="space-around">
-    <v-card-title>Add new Form Fields Here</v-card-title>
+    <v-card-title>Add New Form Fields From Here</v-card-title>
 
     <!--#####################################-->
 
@@ -21,6 +21,7 @@
 export default {
   data: function () {
     return {
+      addedfields:[],
       fieldslist: [
         {
           fieldName: "Text Field",
