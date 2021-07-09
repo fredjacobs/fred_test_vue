@@ -7,20 +7,31 @@
       {{ headerText }} {{ user }}
       <!-- v-bind shorthand : -->
       <v-btn class="ml-2" :to="{ path: '/' }">HOME</v-btn>
-      <router-link to="/form" class="mx-6 font-weight-light white--text 0.2rem"
+      <router-link
+        to="/form"
+        class="text-body-2 mx-6 font-weight-light white--text"
         >Form</router-link
       >
-      <router-link to="/notes" class="mx-6 font-weight-light white--text 0.2rem"
+      <router-link
+        to="/notes"
+        class="text-body-2 mx-6 font-weight-light white--text"
         >My Notes</router-link
       >
 
       <router-link
-      to="/contact-create" class="mx-6 font-weight-light white--text 0.2rem"
-      >Contact Create</router-link>
+        to="/contact-create"
+        class="text-body-2 mx-6 font-weight-light white--text"
+        >Contact Create</router-link
+      >
       <router-link
         to="/testingstyling"
-        class="mx-6 font-weight-light white--text 0.2rem"
+        class="text-body-2 mx-6 font-weight-light white--text"
         >Styling Test</router-link
+      >
+      <router-link
+        to="/form-create"
+        class="text-body-2 mx-6 font-weight-light white--text"
+        >Create Form</router-link
       >
       <v-btn color="#ffffff" icon @click="changeTheme">
         <v-icon v-if="this.$vuetify.theme.isDark">mdi-lightbulb-on</v-icon>
@@ -28,7 +39,6 @@
           >mdi-lightbulb-outline</v-icon
         >
       </v-btn>
-      <v-btn @click="increment">Add To Number</v-btn>
     </div>
   </div>
 </template>
@@ -44,15 +54,15 @@ export default {
     const themeState = localStorage.getItem("isDarkThemeTrue");
     //this.$store.commit("updateTheme", themeState);
     //this.$vuetify.theme.dark = this.$store.state.isDarkTheme;
-    if(themeState === 'true'){
-       this.$vuetify.theme.dark = true;
+    if (themeState === "true") {
+      this.$vuetify.theme.dark = true;
     } else {
       this.$vuetify.theme.dark = false;
     }
-    
+
     console.log("Theme State" + themeState);
     console.log("Dark Theme: " + this.$vuetify.theme.dark);
-    
+
     this.$emit("myevent");
   },
   methods: {

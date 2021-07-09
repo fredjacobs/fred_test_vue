@@ -46,7 +46,7 @@ const routes = [
   },
   {
     path: "/testingstyling",
-    name: "testingtyling",
+    name: "testingstyling",
     component: TestingStyling,
   },
   {
@@ -57,7 +57,13 @@ const routes = [
     path:"/contact-create",
     name: "create",
     component: ContactCreate,
+  },
+  {
+    path: "/form-create",
+    name: "formcreate",
+    component: FormCreate,
   }
+  
   
 ];
 
