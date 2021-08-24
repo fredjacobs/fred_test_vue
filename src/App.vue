@@ -52,22 +52,16 @@ export default {
     displayfavcolor(favColor) {
       this.$store.commit("color_data/updateColor", favColor);
     },
-
   },
   props: {},
-  mounted() {
-    
-     
-    
-  },
+  mounted() {},
 };
 </script>
 <style>
-.theme--dark.bg-1{
+.theme--dark.bg-1 {
   background-color: black;
 }
-.theme--light.bg-1{
+.theme--light.bg-1 {
   background-color: white;
 }
-
 </style>

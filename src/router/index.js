@@ -7,9 +7,11 @@ import Client from "@/views/Client.vue";
 import Notes from "@/views/Notes.vue";
 import TestingStyling from "@/components/TestingStyling.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
+import PublishSubscribeTest from "@/views/PublishSubscribeTest.vue";
 import ContactCreate from "@/components/ContactCreate.vue";
 import ObjectNinjaDojo from "@/components/ObjectNinjaDojo.vue";
-
+import FormCreate from "@/components/FormCreate";
+//import { component } from "vue/types/umd";
 
 Vue.use(VueRouter);
 
@@ -50,11 +52,11 @@ const routes = [
     component: TestingStyling,
   },
   {
-    path:"*",
-    component:PageNotFound,
+    path: "*",
+    component: PageNotFound,
   },
   {
-    path:"/contact-create",
+    path: "/contact-create",
     name: "create",
     component: ContactCreate,
   },
@@ -62,9 +64,12 @@ const routes = [
     path: "/form-create",
     name: "formcreate",
     component: FormCreate,
-  }
-  
-  
+  },
+  {
+    path: "/pst",
+    name: "pst",
+    component: PublishSubscribeTest,
+  },
 ];
 
 //How do you add multiple components to a single Route path / element on app.vue
