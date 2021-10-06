@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-4 light-blue lighten-3">
-    <div class="d-flex">
+    <div v-if="!inEditMode" class="d-flex">
       <v-text-field
         label="Form Name"
         v-model="new_form_name"
@@ -9,7 +9,8 @@
       <v-btn rounded large class="mx-6" @click="saveForm">Save Form</v-btn>
     </div>
     <div class="current_form_name" v-if="inEditMode">
-      Editing Form: {{ current_form_name }} | Id No: {{ id }}
+      <span>Editing Form: {{ current_form_name }} | Id No: {{ id }}</span>
+      <v-btn @click="update_form" class="mx-4" rounded>UPDATE FORM</v-btn>
     </div>
     <Component
       :formFields="formFields"
@@ -61,12 +62,37 @@ export default {
         url: "http://localhost:3000/forms",
         data: savedForm,
       });
-    },
-  },
 
-  mounted() {
-    this.fieldType = this.$store.state.formFields;
-    //console.log(this.fieldType);
+      await this.$store.commit("clearFields");
+      this.$emit("clearFormFields");
+      this.new_form_name = "";
+
+      //#####################
+      this.$emit("updateForms");
+
+      //################
+    },
+
+    async update_form(e) {
+      const id = this.id;
+      const updatedForm = {
+        form_name: this.current_form_name,
+        fields: this.$store.state.formFields,
+      };
+
+      await this.$http({
+        method: "PUT",
+        url: `http://localhost:3000/forms/${id}`,
+        data: updatedForm,
+      });
+      await this.$store.commit("clearFields");
+      this.$emit("clearFormFields");
+    },
+
+    mounted() {
+      this.fieldType = this.$store.state.formFields;
+      //console.log(this.fieldType);
+    },
   },
 };
 </script>

@@ -7,9 +7,14 @@
     <div class="edit_form_list my-4">
       <span>Edit Form: </span
       ><span v-for="form in forms" :key="form.id"
-        ><v-btn @click="display_form" :data-id="form.id" small rounded>{{
-          form.form_name
-        }}</v-btn>
+        ><v-btn
+          @click="display_form"
+          :data-id="form.id"
+          small
+          rounded
+          class="mx-2"
+          >{{ form.form_name }}</v-btn
+        >
       </span>
     </div>
     <v-row>
@@ -20,6 +25,8 @@
           :current_form_name="formName"
           :id="formId"
           :inEditMode="editMode"
+          @clearFormFields="clearFormList"
+          @updateForms="updateForms"
         />
       </v-col>
 
@@ -52,6 +59,9 @@ export default {
     };
   },
   methods: {
+    clearFormList() {
+      this.formfields = this.$store.state.formFields;
+    },
     show_field(id) {
       this.showEditField = true;
       this.editFieldId = id;
@@ -71,6 +81,14 @@ export default {
       this.editMode = true;
 
       console.log(curForm);
+    },
+
+    async updateForms() {
+      this.forms = [];
+      const response = await this.$http.get("http://localhost:3000/forms");
+      const data = response.data;
+
+      data.map((el) => this.forms.push(el));
     },
   },
   components: {
