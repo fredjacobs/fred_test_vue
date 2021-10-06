@@ -7,13 +7,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
     name: "",
     color: "",
     randomNumber: null,
     currentClient: "",
-    isDarkTheme:'',
-    myNumber:null,
+    isDarkTheme: "",
+    myNumber: null,
     myData: [
       {
         acc: "Freddie Kruger",
@@ -36,6 +35,7 @@ export default new Vuex.Store({
         quote: 5000,
       },
     ],
+    formFields: [],
   },
   mutations: {
     updateFormOne(state, payload) {
@@ -48,12 +48,28 @@ export default new Vuex.Store({
     updateCurrentClient(state, payload) {
       state.currentClient = payload;
     },
-    setErrorMessage(state,payload){
+    setErrorMessage(state, payload) {
       console.log("ERROR");
     },
-    updateTheme(state,payload){
+    updateTheme(state, payload) {
       state.isDarkTheme = payload;
-    }
+    },
+    addFormFields(state, payload) {
+      state.formFields.push(payload);
+      console.log(state.formFields);
+    },
+    updateFormField(state, payload) {
+      const id = payload.id;
+      const label = payload.label;
+      state.formFields.forEach((field, i) => {
+        if (field.field_id === id) {
+          field.field_label = label;
+        }
+      });
+    },
+    clearFields(state) {
+      state.formFields = [];
+    },
   },
   actions: {},
   modules: {

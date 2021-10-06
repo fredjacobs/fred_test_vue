@@ -47,7 +47,7 @@ export default {
   }),
   methods: {
     emmitReceiver() {
-      console.log(`Hello ${this.$store.state.currentClient}`);
+      //console.log(`Hello ${this.$store.state.currentClient}`);
     },
     displayfavcolor(favColor) {
       this.$store.commit("color_data/updateColor", favColor);
@@ -63,5 +63,11 @@ export default {
 }
 .theme--light.bg-1 {
   background-color: white;
+}
+
+.edit-form {
+  background-color: #efefef;
+  padding: 10px;
+  margin-top: 10px;
 }
 </style>

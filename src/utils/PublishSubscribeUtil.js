@@ -23,16 +23,18 @@ PS.prototype = {
   },
 
   //Remove all Event Listeners/*  */
-  removeAllEventListeners: function () {},
+  removeAllEventListeners: function () {
+    this.events = {};
+  },
 
   //Add event listeners to the events object
-  addEventListener: function (eventName, payload) {
+  addEventListener: function (eventName, fn) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
 
-    this.events[eventName].push(payload);
-    console.log(this.events);
+    this.events[eventName].push(fn);
+    //console.log(this.events);
   },
 };
 

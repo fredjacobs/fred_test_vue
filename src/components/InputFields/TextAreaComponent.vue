@@ -1,12 +1,11 @@
 <template>
   <div>
     <v-card class="ma-2 pa-4">
-      <v-radio-group :data-formId="formId" v-model="radioGroup">
-        <div class="group-label">{{ fieldlabel }}</div>
-        <v-radio label="Choice 1" value="1"></v-radio>
-        <v-radio label="Choice 2" value="2"></v-radio>
-        <v-radio label="Choice 3" value="3"></v-radio>
-      </v-radio-group>
+      <v-textarea
+        :data-formId="formId"
+        outlined
+        :label="fieldlabel"
+      ></v-textarea>
       <v-btn @click="displayForm" rounded>EDIT</v-btn>
     </v-card>
   </div>
@@ -14,11 +13,7 @@
 <script>
 export default {
   data: function () {
-    return {
-      radioGroup: null,
-
-      label: "",
-    };
+    return {};
   },
   methods: {
     displayForm(e) {

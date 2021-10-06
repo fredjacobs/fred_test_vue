@@ -40,7 +40,9 @@ export default {
     eventNames: ["ev1", "ev2", "ev3"],
   }),
   mounted() {
+    //console.log(PublishSubscribeUtil.events);
     PublishSubscribeUtil.removeAllEventListeners();
+
     let index = 0;
     let ev = this.eventNames[index];
     while (ev) {
@@ -50,8 +52,27 @@ export default {
       );
       ev = this.eventNames[++index];
     }
+
+    //########### PUBLISH / SUBSCRIBE #######################
+    //-----------Add Event name with function ---------------
+    PublishSubscribeUtil.addEventListener("myEvent", this.sayHello);
+    PublishSubscribeUtil.addEventListener("myEvent2", this.sayHello2);
+
+    //-----------Call function by event name
+    PublishSubscribeUtil.dispatchEvent("myEvent", "Hi");
+    PublishSubscribeUtil.dispatchEvent("myEvent2", "Hello");
+
+    //#######################################################
+    //console.log(PublishSubscribeUtil.events);
   },
   methods: {
+    sayHello(arg) {
+      console.log(arg + " hello 1");
+    },
+    sayHello2(arg) {
+      console.log(arg + " hello 2");
+    },
+
     onButtonEventGeneric(payload) {
       this[payload.fnkey](payload);
     },

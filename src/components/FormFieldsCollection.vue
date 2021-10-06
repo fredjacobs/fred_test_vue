@@ -1,7 +1,27 @@
 <template>
-  <v-card class="px-4">
-    <v-card-title>Your Form Fields</v-card-title>
-    <Component v-for="item in fieldType" :key="item.type" :is="item.type" class="field_component">
+  <v-card class="pa-4 light-blue lighten-3">
+    <div class="d-flex">
+      <v-text-field
+        label="Form Name"
+        v-model="new_form_name"
+        class="mx-6"
+      ></v-text-field>
+      <v-btn rounded large class="mx-6" @click="saveForm">Save Form</v-btn>
+    </div>
+    <div class="current_form_name" v-if="inEditMode">
+      Editing Form: {{ current_form_name }} | Id No: {{ id }}
+    </div>
+    <Component
+      :formFields="formFields"
+      v-for="item in formFields"
+      :key="item.field_id"
+      :is="item.field_type"
+      class="field_component"
+      :data-id="item.field_id"
+      :formId="item.field_id"
+      :fieldlabel="item.field_label"
+      @edit_field="edit_field"
+    >
     </Component>
   </v-card>
 </template>
@@ -9,21 +29,44 @@
 import TextFieldComponent from "@/components/InputFields/TextFieldComponent";
 import RadioButtonComponent from "@/components/InputFields/RadioButtonComponent";
 import CheckBoxComponent from "@/components/InputFields/CheckBoxComponent";
+import TextAreaComponent from "@/components/InputFields/TextAreaComponent";
 
 export default {
   data: function () {
     return {
-      fieldType: [
-        { type: "TextFieldComponent" },
-        { type: "RadioButtonComponent" },
-        { type: "CheckBoxComponent"}
-      ],
+      new_form_name: "",
     };
   },
   components: {
     TextFieldComponent,
     RadioButtonComponent,
     CheckBoxComponent,
+    TextAreaComponent,
+  },
+  props: ["formFields", "current_form_name", "id", "inEditMode"],
+  methods: {
+    edit_field(id) {
+      this.$emit("show_edit_field", id);
+    },
+
+    async saveForm(e) {
+      e.preventDefault();
+      const savedForm = {
+        form_name: this.new_form_name,
+        fields: this.$store.state.formFields,
+      };
+      console.log(savedForm);
+      await this.$http({
+        method: "POST",
+        url: "http://localhost:3000/forms",
+        data: savedForm,
+      });
+    },
+  },
+
+  mounted() {
+    this.fieldType = this.$store.state.formFields;
+    //console.log(this.fieldType);
   },
 };
 </script>

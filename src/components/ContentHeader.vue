@@ -60,8 +60,8 @@ export default {
       this.$vuetify.theme.dark = false;
     }
 
-    console.log("Theme State" + themeState);
-    console.log("Dark Theme: " + this.$vuetify.theme.dark);
+    /* console.log("Theme State" + themeState);
+    console.log("Dark Theme: " + this.$vuetify.theme.dark); */
 
     this.$emit("myevent");
   },

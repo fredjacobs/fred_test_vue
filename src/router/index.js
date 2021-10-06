@@ -11,6 +11,7 @@ import PublishSubscribeTest from "@/views/PublishSubscribeTest.vue";
 import ContactCreate from "@/components/ContactCreate.vue";
 import ObjectNinjaDojo from "@/components/ObjectNinjaDojo.vue";
 import FormCreate from "@/components/FormCreate";
+import Slider from "@/components/Slider";
 //import { component } from "vue/types/umd";
 
 Vue.use(VueRouter);
@@ -69,6 +70,11 @@ const routes = [
     path: "/pst",
     name: "pst",
     component: PublishSubscribeTest,
+  },
+  {
+    path: "/slide",
+    name: "slider",
+    component: Slider,
   },
 ];
 
